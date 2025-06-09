@@ -1,0 +1,160 @@
+/* Paleta: Verde (MediumSeaGreen), Fundo Branco */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #ffffff;
+  color: #3CB371;
+}
+
+header {
+  background-color: #3CB371;
+  color: white;
+  padding: 20px 40px;
+  text-align: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2em;
+}
+
+nav {
+  background-color: #e6f5ee;
+  padding: 10px 40px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+nav a {
+  color: #3CB371;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #2e8b57;
+}
+
+main {
+  padding: 40px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  color: #3CB371;
+  margin-bottom: 10px;
+}
+
+.card {
+  background-color: #f8f8f8;
+  border: 1px solid #c8e6c9;
+  border-radius: 10px;
+  padding: 20px;
+  margin-top: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+input, button {
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  width: 100%;
+  max-width: 400px;
+  font-size: 1em;
+}
+
+button {
+  background-color: #3CB371;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #2e8b57;
+}
+
+footer {
+  background-color: #e6f5ee;
+  text-align: center;
+  padding: 20px;
+  color: #3CB371;
+  font-size: 0.9em;
+  margin-top: 60px;
+  border-top: 1px solid #c0c0c0;
+}
+
+/* Estilos do slideshow */
+
+.slideshow-container {
+  position: relative;
+  width: 100vw;         /* Usa toda a largura da tela */
+  margin: 0 auto;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+  width: 100vw;         /* Imagem ocupa toda a largura da tela */
+  height: auto;
+  border-radius: 0;
+  object-fit: cover;    /* Opcional: ajuda a manter o foco da imagem */
+}
+/* Estilo para tabela de animais */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+thead {
+  background-color: #3CB371;
+  color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tr:hover {
+  background-color: #f1f8f5;
+}
+
+/* Estilo para inputs e formulário extra */
+
+form input[type="date"],
+form input[type="number"],
+form select,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  font-size: 1em;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 80px;
+}

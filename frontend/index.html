@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Vet House</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <h1>Hospital Veterinário - Vet House</h1>
+        <p>Amor e cuidado para o seu melhor amigo!</p>
+    </header>
+
+    <nav>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#cadastro">Cadastro</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <!-- Seção de slideshow inserida aqui -->
+    <section id="slideshow">
+        <div class="slideshow-container">
+            <img class="slide" src="imagens/1.jpeg" alt="Imagem 1" />
+            <img class="slide" src="imagens/2.jpg" alt="Imagem 2" />
+            <img class="slide" src="imagens/3.jpg" alt="Imagem 3" />
+            <img class="slide" src="imagens/4.jpg" alt="Imagem 4" />
+            <img class="slide" src="imagens/5.jpg" alt="Imagem 5" />
+            <img class="slide" src="imagens/6.jpg" alt="Imagem 6" />
+        </div>
+    </section>
+
+    <main>
+        <section id="sobre">
+            <h2>Sobre Nós</h2>
+            <div class="card">
+                <p>Bem-vindos à <strong>Vet House - Hospital Veterinário!</strong> No Vet House Hospital Veterinário, somos apaixonados por cuidar dos seus melhores amigos! Nossa missão é promover a saúde e o bem-estar dos animais com serviços de alta qualidade, carinho e profissionalismo.</p>
+                <p>Nossa missão é promover a saúde e o bem-estar dos animais com serviços de alta qualidade, carinho e
+                    profissionalismo.</p>
+                <p><strong>Valores:</strong> Amor, Respeito, Excelência, Transparência, Compaixão e Responsabilidade.
+                </p>
+                <p><strong>Equipe:</strong> Profissionais experientes e atualizados, comprometidos com o melhor para o
+                    seu pet.</p>
+                <p><strong>Instalações:</strong> Consultórios, sala de cirurgia, internação confortável e laboratório
+                    próprio.</p>
+            </div>
+        </section>
+
+        <!-- resto das seções permanece igual -->
+        <section id="servicos">
+            <h2>Serviços</h2>
+            <div class="card">
+                <ul>
+                    <li>Consultas e Vacinação</li>
+                    <li>Cirurgias</li>
+                    <li>Exames laboratoriais</li>
+                    <li>Banho e Tosa</li>
+                    <li>Atendimento Emergencial 24h</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="cadastro">
+            <h2>Cadastro de Animal</h2>
+            <div class="card">
+                <form id="animalForm">
+                    <input id="nome" type="text" placeholder="Nome do Animal" required /><br />
+                    <input id="especie" type="text" placeholder="Espécie" required /><br />
+                    <input id="raca" type="text" placeholder="Raça" required /><br />
+                    <input id="idade" type="number" placeholder="Idade" required /><br />
+                    <input id="tutor" type="text" placeholder="Nome do Tutor" required /><br />
+                    <button type="submit">Cadastrar</button>
+                </form>
+            </div>
+
+            <div id="listaAnimais" class="card">
+                <!-- Lista de animais será preenchida via script.js -->
+            </div>
+        </section>
+        <section id="servico">
+            <h2>Registrar Serviço</h2>
+            <div class="card">
+                <form id="servicoForm">
+                    <input id="animalId" type="number" placeholder="ID do Animal" required /><br />
+                    <input id="tipoServico" type="text" placeholder="Tipo de Serviço (ex: Consulta, Cirurgia)"
+                        required /><br />
+                    <textarea id="descricao" placeholder="Descrição do Serviço" required></textarea><br />
+                    <input id="dataServico" type="date" required /><br />
+                    <button type="submit">Registrar Serviço</button>
+                </form>
+            </div>
+        </section>
+
+        <section id="historico">
+            <h2>Histórico de Serviços</h2>
+            <div class="card">
+                <input id="historicoAnimalId" type="number" placeholder="ID do Animal" required />
+                <button id="buscarHistorico">Buscar Histórico</button>
+            </div>
+            <div id="historicoServicos" class="card">
+                <!-- Resultados do histórico aparecerão aqui -->
+            </div>
+        </section>
+
+        <section id="contato">
+            <h2>Contato</h2>
+            <div class="card">
+                <p>📍 Rua Aurora, 1505 - Marília/SP</p>
+                <p>📞 (14) 3457-1000</p>
+                <p>✉️ atendimento@animalvet.com.br</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 AnimalVet - Todos os direitos reservados
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        let slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            const slides = document.getElementsByClassName("slide");
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) slideIndex = 1;
+            slides[slideIndex - 1].style.display = "block";
+            setTimeout(showSlides, 3000); // Troca a cada 3 segundos
+        }
+    </script>
+
+</body>
+
+</html>
