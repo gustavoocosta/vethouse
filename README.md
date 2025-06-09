@@ -1,10 +1,6 @@
-Claro! Aqui está um **README completo e detalhado** para o seu sistema web de clínica veterinária, explicando todas as partes do projeto:
+# 🐾 Vethouse - Sistema Web para Clínica Veterinária
 
----
-
-# 🐾 Sistema Web - Clínica Veterinária
-
-Este projeto tem como objetivo desenvolver um sistema web completo para gerenciar uma clínica veterinária, utilizando tecnologias como **Golang, MySQL, HTML, CSS e JavaScript**. O sistema permite o **cadastro de animais** e a **visualização dos animais cadastrados**, servindo como base para expansão futura com funcionalidades como registro de serviços (consultas, exames, cirurgias etc.).
+Este é um sistema web completo para gerenciamento de uma clínica veterinária, construído com **Golang (Gin + GORM)** no backend, **MySQL** como banco de dados, e **HTML, CSS e JavaScript** no frontend.
 
 ---
 
@@ -19,46 +15,43 @@ Este projeto tem como objetivo desenvolver um sistema web completo para gerencia
 
 ---
 
-## 📁 Estrutura do Projeto
+## 📦 Estrutura do Projeto
 
-```
-clinica_veterinaria/
-├── frontend/         # Interface web
-│   ├── index.html
-│   ├── style.css
-│   └── script.js
-├── backend/          # Código do back-end em Go
-│   ├── main.go
-│   ├── controllers/
-│   │   └── animal_controller.go
-│   ├── models/
-│   │   └── animal.go
-│   ├── routes/
-│   │   └── animal_routes.go
-│   └── database/
-│       └── connection.go
+Vethouse/
+├── backend/
+│ ├── main.go
+│ ├── controllers/
+│ │ └── animal_controller.go
+│ ├── models/
+│ │ └── animal.go
+│ ├── routes/
+│ │ └── animal_routes.go
+│ └── database/
+│ └── connection.go
+├── frontend/
+│ ├── index.html
+│ ├── style.css
+│ └── script.js
 ├── database/
-│   └── schema.sql     # Script para criação do banco
-├── documentacao.pdf   # (não incluso aqui – será gerado à parte)
-└── README.txt         # Instruções
-```
+│ └── schema.sql
+├── go.mod
+└── README.md
+
 
 ---
 
-## 🚀 Como Executar o Projeto
-
+## ⚙️ Como Configurar e Executar 
 ### 1. Pré-requisitos
 
-* Golang instalado (1.18 ou superior)
-* MySQL instalado e rodando localmente
-* Navegador Web (Google Chrome ou similar)
+- Go 1.18 ou superior
+- MySQL instalado e rodando localmente
+- Navegador web (para usar o frontend)
 
 ---
 
-### 2. Configuração do Banco de Dados
+### 2. Banco de Dados
 
-1. Acesse o MySQL e execute o script `database/schema.sql` para criar o banco:
-
+1. Execute o script `database/schema.sql` no seu MySQL:
 ```sql
 CREATE DATABASE IF NOT EXISTS clinica;
 USE clinica;
@@ -80,87 +73,41 @@ CREATE TABLE IF NOT EXISTS servicos (
   animal_id INT,
   FOREIGN KEY (animal_id) REFERENCES animais(id)
 );
+````
+2. Configure a string de conexão no arquivo backend/database/connection.go:
+
+```` dsn := "root:SENHA@tcp(127.0.0.1:3306)/clinica?charset=utf8mb4&parseTime=True&loc=Local" ````
+
+3. Executando o Back-end
+  1. No terminal, vá até a pasta do backend:
+```cd Vethouse/backend```
+  2. Inicialize o módulo Go (se ainda não existir):
+```go mod init vethouse```
+  3. Certifique-se de que os imports no main.go estejam assim:
 ```
-
----
-
-### 3. Configuração do Back-end
-
-1. Navegue até a pasta `backend/`.
-2. Edite o arquivo `database/connection.go` e altere a string de conexão com o seu usuário e senha do MySQL:
-
-```go
-dsn := "root:SENHA@tcp(127.0.0.1:3306)/clinica?charset=utf8mb4&parseTime=True&loc=Local"
+ import (
+    "vethouse/database"
+    "vethouse/routes"
+)
 ```
+4. Execute:
+```go run main.go```
+( O servidor estará disponível em: http://localhost:8080 )
 
-3. No terminal, execute o servidor com o comando:
+🧠 Funcionalidades Atuais
+Cadastro de animais
 
-```bash
-go run main.go
-```
+Listagem de animais
 
-O back-end estará disponível em: `http://localhost:8080/`
+Armazenamento em banco de dados via API REST
 
----
+🔧 API Endpoints
+Método	Rota	Descrição
+GET	/animais	Lista todos os animais
+POST	/animais	Cadastra um novo animal
 
-### 4. Executando o Front-end
-
-1. Vá até a pasta `frontend/`
-2. Dê dois cliques em `index.html` ou abra no navegador
-3. Use o formulário para cadastrar animais
-4. A lista de animais cadastrados será exibida automaticamente na página
-
----
-
-## 🧠 Funcionalidades
-
-### ✅ Cadastro de Animais
-
-* Campos: nome, espécie, raça, idade, tutor
-* Envio via formulário HTML (JavaScript + Fetch API)
-* Armazenamento em banco de dados via API REST
-
-### ✅ Listagem de Animais
-
-* Exibe os dados cadastrados na tela
-* Atualização automática ao cadastrar um novo animal
-
----
-
-## 🔧 Estrutura da API (Golang)
-
-### Rotas disponíveis
-
-| Método | Rota       | Descrição               |
-| ------ | ---------- | ----------------------- |
-| GET    | `/animais` | Lista todos os animais  |
-| POST   | `/animais` | Cadastra um novo animal |
-
----
-
-## 📷 Interface do Sistema
-
-> A interface é simples e direta para permitir uma visualização clara dos dados.
-> No PDF de documentação, prints serão incluídos com exemplos de uso real da aplicação.
-
----
-
-## 📦 Deploy e Melhorias Futuras
-
-Este projeto pode ser expandido com:
-
-* Cadastro de serviços (consultas, cirurgias etc.)
-* Histórico de atendimentos por animal
-* Autenticação de usuários (login de veterinários)
-* Painel administrativo com gráficos (Power BI ou Chart.js)
-* Responsividade para mobile (com Bootstrap)
-
----
-
-## 👨‍💻 Autor
-
-**Gustavo dos Santos Oliveira Costa**
-Estudante de Análise e Desenvolvimento de Sistemas
-GitHub: [github.com/seuusuario](https://github.com/seuusuario)
+👨‍💻 Autor
+Gustavo dos Santos Oliveira Costa
+Analista e desenvolvedor de sistemas
+GitHub: [github.com/gustavoocosta](https://github.com/gustavoocosta)
 LinkedIn: [linkedin.com/in/gustavosocosta](https://www.linkedin.com/in/gustavosocosta/)
-
